@@ -40,6 +40,8 @@ class App extends Component {
           name={character.name}
           gender={character.gender}
           birth_year={character.birth_year}
+          height={character.height}
+          mass={character.mass}
           />
           ) // end return statement
         })}
