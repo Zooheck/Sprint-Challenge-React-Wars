@@ -2,8 +2,8 @@
     background-color: white;
     border: 3px solid black;
     border-radius: 5px;
-    width: 30%;
-    margin-bottom: 20px;
+    width: 75%;
+    margin: 0 auto;
     padding: 20px 0;
 }
 @media (max-width: 800px) {
@@ -25,4 +25,28 @@
 .character-profile h3 {
     font-size: 1.2rem;
     margin-bottom: 10px;
+}
+
+.character-profile .button-container button {
+    font-family: 'ZCOOL QingKe HuangYou', cursive;
+    text-decoration: none;
+    background: white;
+    border: 2px solid black;
+    color: black;
+    font-size: 2.2rem;
+    padding: 9px 20px;
+    border-radius: 5px;
+    transition: all 0.3s;
+}
+
+.character-profile .button-container button:hover {
+    color: white;
+    background-color: black;
+    border-color: white;
+}
+.character-profile .button-container button:focus {
+    outline: none;
+}
+.character-profile .button-container button:active {
+    transform: scale(0.99);
 }
