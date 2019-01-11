@@ -6,3 +6,9 @@
     margin-bottom: 20px;
     padding: 20px 0;
 }
+
+.character-profile h2 {
+    font-weight: 700;
+    margin-bottom: 15px;
+    font-size: 2rem;
+}
