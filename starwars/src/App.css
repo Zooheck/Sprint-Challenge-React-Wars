@@ -68,9 +68,11 @@ html {
 .profile-container {
 	margin: 0 auto;
 	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	justify-content: space-between;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    justify-content: space-between;
 	color: #80BFFF;
 }
 @media (max-width: 800px) {

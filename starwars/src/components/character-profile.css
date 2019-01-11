@@ -1,13 +1,15 @@
 .character-profile {
+    text-align: center;
     background-color: #001f3f;
     border: 3px solid #80BFFF;
     border-radius: 5px;
-    width: 75%;
-    margin: 0 auto;
+    /* width: 75%; */
+    width: 30%;
+    margin-bottom: 20px;
     padding: 20px 0;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+    /* display: flex;
+    justify-content: space-betwebutton-containeren;
+    align-items: center; */
 }
 @media (max-width: 800px) {
     .character-profile {
@@ -29,8 +31,13 @@
     font-size: 1.2rem;
     margin-bottom: 10px;
 }
-
-.character-profile button {
+.button-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100%;
+}
+.button-container button {
     font-family: 'ZCOOL QingKe HuangYou', cursive;
     text-decoration: none;
     background: #001f3f;
@@ -42,14 +49,14 @@
     transition: all 0.3s;
 }
 
-.character-profile button:hover {
+.button-container button:hover {
     color: #001f3f;
     background-color: #80BFFF;
     border-color: #80BFFF;
 }
-.character-profile button:focus {
+.button-container button:focus {
     outline: none;
 }
-.character-profile button:active {
+.button-container button:active {
     transform: scale(0.99);
 }
