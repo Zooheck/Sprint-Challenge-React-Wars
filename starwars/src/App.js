@@ -7,8 +7,6 @@ class App extends Component {
     this.state = {
       starwarsChars: [],
       displayedCharacter: {},
-      previous: undefined,
-      next: undefined
     };
   }
 
