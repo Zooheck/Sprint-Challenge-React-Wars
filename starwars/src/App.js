@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
 import './App.css';
-
+import CharacterProfile from './components/CharacterProfile'
+import Button from './components/Button';
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      starwarsChars: []
+      starwarsChars: [],
+      displayedCharacter: {},
+      previous: '',
+      next: ''
     };
   }
 
@@ -22,17 +26,88 @@ class App extends Component {
         return res.json();
       })
       .then(data => {
-        this.setState({ starwarsChars: data.results });
+        console.log(data)
+        this.setState({ 
+          starwarsChars: data.results,
+          displayedCharacter: data.results[0],
+          previous: data.previous,
+          next: data.next
+         });
       })
       .catch(err => {
         throw new Error(err);
       });
   };
-
+  toggleNext = event => {
+    event.preventDefault();
+    // const currentDisplayIndex = this.state.starwarsChars.indexOf(this.state.displayedCharacter)
+    // this.setState(previousState => {
+    //   if (currentDisplayIndex === (this.state.starwarsChars.length - 1)) {
+    //     return {
+    //       displayedCharacter: previousState.starwarsChars[0]
+    //     }
+    //   }
+    //   return {
+    //     displayedCharacter: previousState.starwarsChars[currentDisplayIndex + 1]
+    //   }
+    // })
+    this.getCharacters(this.state.next)
+  }
+  togglePrevious = event => {
+    event.preventDefault();
+    // const currentDisplayIndex = this.state.starwarsChars.indexOf(this.state.displayedCharacter)
+    // this.setState(previousState => {
+    //   if (currentDisplayIndex === 0) {
+    //     return {
+    //       displayedCharacter: previousState.starwarsChars[(this.state.starwarsChars.length - 1)]
+    //     }
+    //   }
+    //   return {
+    //     displayedCharacter: previousState.starwarsChars[currentDisplayIndex - 1]
+    //   }
+    // })
+    this.getCharacters(this.state.previous)
+  }
   render() {
     return (
       <div className="App">
         <h1 className="Header">React Wars</h1>
+        <div className="profile-container">
+        {this.state.starwarsChars.map(character => {
+          return(
+          <CharacterProfile 
+          name={character.name}
+          gender={character.gender}
+          birth_year={character.birth_year}
+          height={character.height}
+          mass={character.mass}
+          />
+          ) // end return statement
+        })}
+
+        {/* <CharacterProfile
+        name={this.state.displayedCharacter.name}
+        gender={this.state.displayedCharacter.gender}
+        birth_year={this.state.displayedCharacter.birth_year}
+        height={this.state.displayedCharacter.height}
+        mass={this.state.displayedCharacter.mass}
+        toggleNext={this.toggleNext}
+        togglePrevious={this.togglePrevious}
+        /> */}
+        </div>
+        <div className="button-container">
+          <Button 
+          onClick={this.togglePrevious}
+          buttonText="Previous"
+          newPage={this.state.previous}
+          />
+          <Button 
+          onClick={this.toggleNext}
+          buttonText="Next"
+          newPage={this.state.next}
+          />
+        </div>
+
       </div>
     );
   }
