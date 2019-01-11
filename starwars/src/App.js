@@ -33,7 +33,7 @@ class App extends Component {
     return (
       <div className="App">
         <h1 className="Header">React Wars</h1>
-
+        <div className="profile-container">
         {this.state.starwarsChars.map(character => {
           return(
           <CharacterProfile 
@@ -43,6 +43,8 @@ class App extends Component {
           />
           ) // end return statement
         })}
+        </div>
+        
       </div>
     );
   }

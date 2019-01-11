@@ -1,5 +1,5 @@
 import React from 'react'
-
+import './character-profile.css'
 const CharacterProfile = (props) => {
   return (
     <div className="character-profile">
