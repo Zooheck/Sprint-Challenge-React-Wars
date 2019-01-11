@@ -71,6 +71,7 @@ html {
 	flex-direction: row;
 	flex-wrap: wrap;
 	justify-content: space-between;
+	color: #80BFFF;
 }
 @media (max-width: 800px) {
 	.profile-container {

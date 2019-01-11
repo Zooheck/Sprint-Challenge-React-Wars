@@ -1,6 +1,6 @@
 .character-profile {
-    background-color: white;
-    border: 3px solid black;
+    background-color: #001f3f;
+    border: 3px solid #80BFFF;
     border-radius: 5px;
     width: 75%;
     margin: 0 auto;
@@ -29,17 +29,13 @@
     font-size: 1.2rem;
     margin-bottom: 10px;
 }
-.character-profile {
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-}
+
 .character-profile button {
     font-family: 'ZCOOL QingKe HuangYou', cursive;
     text-decoration: none;
-    background: white;
-    border: 2px solid black;
-    color: black;
+    background: #001f3f;
+    border: 2px solid #80BFFF;
+    color: #80BFFF;
     font-size: 2.2rem;
     padding: 12px 20px;
     border-radius: 5px;
@@ -47,9 +43,9 @@
 }
 
 .character-profile button:hover {
-    color: white;
-    background-color: black;
-    border-color: white;
+    color: #001f3f;
+    background-color: #80BFFF;
+    border-color: #80BFFF;
 }
 .character-profile button:focus {
     outline: none;
