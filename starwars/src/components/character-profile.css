@@ -6,9 +6,23 @@
     margin-bottom: 20px;
     padding: 20px 0;
 }
-
+@media (max-width: 800px) {
+    .character-profile {
+        width: 45%;
+    }
+}
+@media (max-width: 500px) {
+    .character-profile {
+        width: 90%;
+    }
+}
 .character-profile h2 {
     font-weight: 700;
     margin-bottom: 15px;
     font-size: 2rem;
+}
+
+.character-profile h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
 }
