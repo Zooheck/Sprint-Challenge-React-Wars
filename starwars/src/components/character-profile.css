@@ -5,6 +5,9 @@
     width: 75%;
     margin: 0 auto;
     padding: 20px 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 @media (max-width: 800px) {
     .character-profile {
@@ -26,27 +29,31 @@
     font-size: 1.2rem;
     margin-bottom: 10px;
 }
-
-.character-profile .button-container button {
+.character-profile {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+.character-profile button {
     font-family: 'ZCOOL QingKe HuangYou', cursive;
     text-decoration: none;
     background: white;
     border: 2px solid black;
     color: black;
     font-size: 2.2rem;
-    padding: 9px 20px;
+    padding: 12px 20px;
     border-radius: 5px;
     transition: all 0.3s;
 }
 
-.character-profile .button-container button:hover {
+.character-profile button:hover {
     color: white;
     background-color: black;
     border-color: white;
 }
-.character-profile .button-container button:focus {
+.character-profile button:focus {
     outline: none;
 }
-.character-profile .button-container button:active {
+.character-profile button:active {
     transform: scale(0.99);
 }
