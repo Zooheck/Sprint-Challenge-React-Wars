@@ -40,9 +40,7 @@ class App extends Component {
   toggleNext = event => {
     event.preventDefault();
     const currentDisplayIndex = this.state.starwarsChars.indexOf(this.state.displayedCharacter)
-    console.log(currentDisplayIndex);
     this.setState(previousState => {
-      const currentDisplayIndex = this.state.starwarsChars.indexOf(this.state.displayedCharacter)
       if (currentDisplayIndex === (this.state.starwarsChars.length - 1)) {
         return {
           displayedCharacter: previousState.starwarsChars[0]
@@ -52,21 +50,20 @@ class App extends Component {
         displayedCharacter: previousState.starwarsChars[currentDisplayIndex + 1]
       }
     })
-    // fetch('https://swapi.co/api/people')
-    //   .then(res => {
-    //     return res.json();
-    //   })
-    //   .then (data => {
-    //     this.setState(previousState => {
-    //       return {
-    //         displayedCharacter: previousState
-    //       }
-    //     })
-    //   })
-
   }
   togglePrevious = event => {
     event.preventDefault();
+    const currentDisplayIndex = this.state.starwarsChars.indexOf(this.state.displayedCharacter)
+    this.setState(previousState => {
+      if (currentDisplayIndex === 0) {
+        return {
+          displayedCharacter: previousState.starwarsChars[(this.state.starwarsChars.length - 1)]
+        }
+      }
+      return {
+        displayedCharacter: previousState.starwarsChars[currentDisplayIndex - 1]
+      }
+    })
   }
   render() {
     return (
