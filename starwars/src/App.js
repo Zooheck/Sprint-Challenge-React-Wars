@@ -29,8 +29,6 @@ class App extends Component {
         this.setState({ 
           starwarsChars: data.results,
           displayedCharacter: data.results[0],
-          previous: data.previous,
-          next: data.next
          });
       })
       .catch(err => {
