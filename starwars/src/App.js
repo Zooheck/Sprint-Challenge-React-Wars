@@ -5,7 +5,10 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      starwarsChars: []
+      starwarsChars: [],
+      displayedCharacter: {},
+      previous: undefined,
+      next: undefined
     };
   }
 
@@ -23,19 +26,54 @@ class App extends Component {
       })
       .then(data => {
         console.log(data)
-        this.setState({ starwarsChars: data.results });
+        this.setState({ 
+          starwarsChars: data.results,
+          displayedCharacter: data.results[0],
+          previous: data.previous,
+          next: data.next
+         });
       })
       .catch(err => {
         throw new Error(err);
       });
   };
+  toggleNext = event => {
+    event.preventDefault();
+    const currentDisplayIndex = this.state.starwarsChars.indexOf(this.state.displayedCharacter)
+    console.log(currentDisplayIndex);
+    this.setState(previousState => {
+      const currentDisplayIndex = this.state.starwarsChars.indexOf(this.state.displayedCharacter)
+      if (currentDisplayIndex === (this.state.starwarsChars.length - 1)) {
+        return {
+          displayedCharacter: previousState.starwarsChars[0]
+        }
+      }
+      return {
+        displayedCharacter: previousState.starwarsChars[currentDisplayIndex + 1]
+      }
+    })
+    // fetch('https://swapi.co/api/people')
+    //   .then(res => {
+    //     return res.json();
+    //   })
+    //   .then (data => {
+    //     this.setState(previousState => {
+    //       return {
+    //         displayedCharacter: previousState
+    //       }
+    //     })
+    //   })
 
+  }
+  togglePrevious = event => {
+    event.preventDefault();
+  }
   render() {
     return (
       <div className="App">
         <h1 className="Header">React Wars</h1>
         <div className="profile-container">
-        {this.state.starwarsChars.map(character => {
+        {/* {this.state.starwarsChars.map(character => {
           return(
           <CharacterProfile 
           name={character.name}
@@ -45,7 +83,16 @@ class App extends Component {
           mass={character.mass}
           />
           ) // end return statement
-        })}
+        })} */}
+        <CharacterProfile
+        name={this.state.displayedCharacter.name}
+        gender={this.state.displayedCharacter.gender}
+        birth_year={this.state.displayedCharacter.birth_year}
+        height={this.state.displayedCharacter.height}
+        mass={this.state.displayedCharacter.mass}
+        toggleNext={this.toggleNext}
+        togglePrevious={this.togglePrevious}
+        />
         </div>
         
       </div>
